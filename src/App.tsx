@@ -9,7 +9,6 @@ function App() {
       <div className="max-w-screen-lg mx-auto px-4">
         <Routes>
           <Route path="/" element={<Home />} />
-             <Route path="/product" element={<ProductList />} />
              <Route path="/product/:id" element={<ProductDetail />} />
              <Route path="/admin/upload" element={<AdminUpload />} />
         </Routes>
