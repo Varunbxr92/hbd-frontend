@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Helmet } from 'react-helmet';
 
-
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY!);
 
 const ProductDetail = () => {
@@ -24,16 +23,6 @@ const ProductDetail = () => {
       });
   }, [id]);
 
-  // const handleStripeCheckout = async () => {
-  //   const res = await fetch('https://hbd-backend.onrender.com/api/stripe/create-checkout-session', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ product }),
-  //   });
-  //   const { id } = await res.json();
-  //   const stripe = await stripePromise;
-  //   await stripe?.redirectToCheckout({ sessionId: id });
-  // };
   const handleStripeCheckout = async () => {
   const res = await fetch('https://hbd-backend.onrender.com/api/stripe/create-checkout-session', {
     method: 'POST',
