@@ -5,7 +5,7 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://vastram-backend.onrender.com/api/products')
+    fetch('https://hbd-backend.onrender.com/api/products')
       .then(res => res.json())
       .then(data => setProducts(data));
   }, []);
