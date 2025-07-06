@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
-import { Helmet } from 'react-helmet';
 
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY!);
