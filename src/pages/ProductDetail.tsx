@@ -9,12 +9,20 @@ const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_KEY!);
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<any>(null);
+   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`https://hbd-backend.onrender.com/api/products/${id}`)
-      .then(res => res.json())
-      .then(data => setProduct(data));
-  }, []);
+      .then((res) => res.json())
+      .then((data) => {
+        setProduct(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Error loading product:', err);
+        setLoading(false);
+      });
+  }, [id]);
 
   // const handleStripeCheckout = async () => {
   //   const res = await fetch('https://hbd-backend.onrender.com/api/stripe/create-checkout-session', {
@@ -38,7 +46,9 @@ const ProductDetail = () => {
 };
 
 
-  if (!product) return <p>Loading...</p>;
+ if (loading) return <p className="text-center p-10">Loading product...</p>;
+  if (!product) return <p className="text-center p-10 text-red-500">Product not found</p>;
+
 
   return (
     <div className="p-6">
