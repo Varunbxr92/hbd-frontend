@@ -17,9 +17,9 @@ const Home = () => {
         {products.map((p: any) => (
           <Link key={p._id} to={`/product/${p._id}`}>
             <div className="border p-4 rounded-xl shadow">
-              <img src={`https://hbd-backend.onrender.com/${p.images[0]}`} className="h-60 w-full object-cover rounded" />
-              <h2 className="mt-2 text-lg font-semibold">{p.name}</h2>
-              <p className="text-gray-500">₹{p.price}</p>
+              <img src={`https://hbd-backend.onrender.com/${product.images[0]}`} className="h-60 w-full object-cover rounded" />
+              <h2 className="mt-2 text-lg font-semibold">{product.name}</h2>
+              <p className="text-gray-500">₹{product.price}</p>
             </div>
           </Link>
         ))}

@@ -27,7 +27,7 @@ const ProductDetail = () => {
   //   await stripe?.redirectToCheckout({ sessionId: id });
   // };
   const handleStripeCheckout = async () => {
-  const res = await fetch('http://hbd-backend.onrender.com/api/stripe/create-checkout-session', {
+  const res = await fetch('https://hbd-backend.onrender.com/api/stripe/create-checkout-session', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ product }),
