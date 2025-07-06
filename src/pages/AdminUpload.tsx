@@ -25,7 +25,7 @@ const AdminUpload = () => {
     images.forEach(img => data.append('images', img));
     Object.entries(formData).forEach(([key, value]) => data.append(key, value));
 
-    const res = await fetch('http://hbd-backend.onrender.com/api/products/upload', {
+    const res = await fetch('https://hbd-backend.onrender.com/api/products/upload', {
       method: 'POST',
       body: data
     });
