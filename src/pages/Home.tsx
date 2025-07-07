@@ -7,7 +7,10 @@ const Home = () => {
   useEffect(() => {
     fetch('https://hbd-backend.onrender.com/api/products')
       .then(res => res.json())
-      .then(data => setProducts(data));
+      .then(data => {
+        console.log('Fetched products:', data);  
+        setProducts(data)
+      });
   }, []);
 
   return (
